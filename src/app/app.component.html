@@ -36,8 +36,17 @@
 
     --pill-accent: var(--bright-blue);
 
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
       "Segoe UI Symbol";
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -51,8 +60,17 @@
     line-height: 100%;
     letter-spacing: -0.125rem;
     margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    font-family:
+      "Inter Tight",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
       "Segoe UI Symbol";
   }
 
@@ -231,19 +249,26 @@
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
+        @for (
+          item of [
+            { title: "Explore the Docs", link: "https://angular.dev" },
+            {
+              title: "Learn with Tutorials",
+              link: "https://angular.dev/tutorials",
+            },
+            { title: "CLI Docs", link: "https://angular.dev/tools/cli" },
+            {
+              title: "Angular Language Service",
+              link: "https://angular.dev/tools/language-service",
+            },
+            {
+              title: "Angular DevTools",
+              link: "https://angular.dev/tools/devtools",
+            },
+          ];
+          track item.title
+        ) {
+          <a class="pill" [href]="item.link" target="_blank" rel="noopener">
             <span>{{ item.title }}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -322,6 +347,61 @@
       </div>
     </div>
   </div>
+  <mat-card>
+    <h1>Hello, Angular Material!</h1>
+
+    <!-- NgModel 2-way binding -->
+    <mat-form-field>
+      <input matInput placeholder="Your name" [(ngModel)]="name" />
+    </mat-form-field>
+
+    <!-- click Event -->
+    <button mat-raised-button color="primary" (click)="toggleDetails()">
+      {{ showDetails ? "Hide" : "Show" }} Details
+    </button>
+
+    <!-- *ngIf -->
+    <div *ngIf="showDetails">
+      <p>
+        Your name is: <strong>{{ name }}</strong>
+      </p>
+    </div>
+
+    <!-- NgStyle -->
+    <p [ngStyle]="{ color: selectedColor }">
+      This text uses selected color: {{ selectedColor }}
+    </p>
+
+    <!-- NgClass -->
+    <p [ngClass]="{ highlight: selectedColor === 'red' }">
+      Red makes this text bold!
+    </p>
+
+    <!-- Mat Select -->
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedColor" placeholder="Select color">
+        <mat-option value="red">Red</mat-option>
+        <mat-option value="green">Green</mat-option>
+        <mat-option value="blue">Blue</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- *ngFor -->
+    <h3>Choose an animal:</h3>
+    <div *ngFor="let animal of animals">
+      <button mat-button (click)="changeAnimal(animal)">
+        {{ animal }}
+      </button>
+    </div>
+
+    <!-- *ngSwitch -->
+    <div [ngSwitch]="currentAnimal">
+      <p *ngSwitchCase="'Dog'">You chose a 🐶</p>
+      <p *ngSwitchCase="'Cat'">You chose a 🐱</p>
+      <p *ngSwitchCase="'Bird'">You chose a 🐦</p>
+      <p *ngSwitchDefault>Unknown animal</p>
+    </div>
+  </mat-card>
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
@@ -331,6 +411,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 
 <router-outlet />
