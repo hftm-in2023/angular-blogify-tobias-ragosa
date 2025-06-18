@@ -9,6 +9,9 @@
   "files": [
     "src/main.ts"
   ],
+  "angularCompilerOptions": {
+    "controlFlow": true
+  },
   "include": [
     "src/**/*.d.ts"
   ]

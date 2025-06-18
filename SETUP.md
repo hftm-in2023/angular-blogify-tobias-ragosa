@@ -2,6 +2,9 @@
 
 Diese Datei dokumentiert detailliert den vollständigen Setup-Prozess des Projekts **angular-blogify-tobias-ragosa**. Sie ist so gestaltet, dass ein anderer Entwickler das Projekt vollständig nachvollziehen, einrichten und weiterentwickeln kann.
 
+Link zur Webseite:
+https://zealous-field-0a02f7903.6.azurestaticapps.net/
+
 ---
 
 ## 1️⃣ Projektinitialisierung
