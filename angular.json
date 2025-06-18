@@ -20,7 +20,6 @@
             "outputPath": "dist/angular-blogify-tobias-ragosa",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "proxyConfig": "./proxy.conf.json",
             "polyfills": [
               "zone.js"
             ],
@@ -70,6 +69,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "angular-blogify-tobias-ragosa:build:production"
