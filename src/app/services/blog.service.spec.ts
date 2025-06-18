@@ -7,7 +7,7 @@ describe('BlogService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [BlogService, provideHttpClientTesting()],
+      providers: [provideHttpClientTesting(), BlogService],
     });
     service = TestBed.inject(BlogService);
   });
