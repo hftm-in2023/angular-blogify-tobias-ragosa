@@ -75,6 +75,7 @@ export class AppComponent {
 })
 export class AppComponent implements OnInit {
   blogService = inject(BlogService);
+  title = 'angular-blogify-tobias-ragosa';
 
   ngOnInit() {
     this.blogService.loadBlogs();
