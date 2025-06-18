@@ -1,36 +1,36 @@
 <main class="main">
   <div class="content">
-    <mat-card>
+    <!--<mat-card>
       <h1>{{ title }}</h1>
 
-      <!-- NgModel 2-way binding -->
+      
       <mat-form-field>
         <input matInput placeholder="Your name" [(ngModel)]="name" />
       </mat-form-field>
 
-      <!-- click Event -->
+      
       <button mat-raised-button color="primary" (click)="toggleDetails()">
         {{ showDetails ? "Hide" : "Show" }} Details
       </button>
 
-      <!-- *ngIf -->
+      
       <div *ngIf="showDetails">
         <p>
           Your name is: <strong>{{ name }}</strong>
         </p>
       </div>
 
-      <!-- NgStyle -->
+      
       <p [ngStyle]="{ color: selectedColor }">
         This text uses selected color: {{ selectedColor }}
       </p>
 
-      <!-- NgClass -->
+      
       <p [ngClass]="{ highlight: selectedColor === 'red' }">
         Red makes this text bold!
       </p>
 
-      <!-- Mat Select -->
+      
       <mat-form-field>
         <mat-select [(ngModel)]="selectedColor" placeholder="Select color">
           <mat-option value="red">Red</mat-option>
@@ -39,7 +39,7 @@
         </mat-select>
       </mat-form-field>
 
-      <!-- *ngFor -->
+      
       <h3>Choose an animal:</h3>
       <div *ngFor="let animal of animals">
         <button mat-button (click)="changeAnimal(animal)">
@@ -47,14 +47,14 @@
         </button>
       </div>
 
-      <!-- *ngSwitch -->
+      
       <div [ngSwitch]="currentAnimal">
         <p *ngSwitchCase="'Dog'">You chose a 🐶</p>
         <p *ngSwitchCase="'Cat'">You chose a 🐱</p>
         <p *ngSwitchCase="'Bird'">You chose a 🐦</p>
         <p *ngSwitchDefault>Unknown animal</p>
       </div>
-    </mat-card>
+    </mat-card>-->
   </div>
 </main>
 
