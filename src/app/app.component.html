@@ -1,69 +1,19 @@
 <main class="main">
+  <mat-toolbar color="primary">
+    <button
+      mat-button
+      routerLink="/"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Blog
+    </button>
+    <button mat-button routerLink="/demo" routerLinkActive="active-link">
+      Demo
+    </button>
+  </mat-toolbar>
+
   <div class="content">
-    <!--<mat-card>
-      <h1>{{ title }}</h1>
-
-      
-      <mat-form-field>
-        <input matInput placeholder="Your name" [(ngModel)]="name" />
-      </mat-form-field>
-
-      
-      <button mat-raised-button color="primary" (click)="toggleDetails()">
-        {{ showDetails ? "Hide" : "Show" }} Details
-      </button>
-
-      
-      <div *ngIf="showDetails">
-        <p>
-          Your name is: <strong>{{ name }}</strong>
-        </p>
-      </div>
-
-      
-      <p [ngStyle]="{ color: selectedColor }">
-        This text uses selected color: {{ selectedColor }}
-      </p>
-
-      
-      <p [ngClass]="{ highlight: selectedColor === 'red' }">
-        Red makes this text bold!
-      </p>
-
-      
-      <mat-form-field>
-        <mat-select [(ngModel)]="selectedColor" placeholder="Select color">
-          <mat-option value="red">Red</mat-option>
-          <mat-option value="green">Green</mat-option>
-          <mat-option value="blue">Blue</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      
-      <h3>Choose an animal:</h3>
-      <div *ngFor="let animal of animals">
-        <button mat-button (click)="changeAnimal(animal)">
-          {{ animal }}
-        </button>
-      </div>
-
-      
-      <div [ngSwitch]="currentAnimal">
-        <p *ngSwitchCase="'Dog'">You chose a 🐶</p>
-        <p *ngSwitchCase="'Cat'">You chose a 🐱</p>
-        <p *ngSwitchCase="'Bird'">You chose a 🐦</p>
-        <p *ngSwitchDefault>Unknown animal</p>
-      </div>
-    </mat-card>-->
+    <router-outlet></router-outlet>
   </div>
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<router-outlet />
