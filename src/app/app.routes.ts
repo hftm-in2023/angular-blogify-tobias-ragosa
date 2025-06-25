@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { BlogComponent } from './blog/blog.component';
-import { DemoComponent } from './demo/demo.component';
+import { BlogComponent } from './features/blog/blog.component';
+import { DemoComponent } from './features/demo/demo.component';
 
 export const routes: Routes = [
   { path: '', component: BlogComponent },
