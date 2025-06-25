@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { BlogService } from '../services/blog.service';
+import { BlogService } from '../../core/services/blog.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
