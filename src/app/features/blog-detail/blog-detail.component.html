@@ -1,3 +1,12 @@
+<button
+  mat-raised-button
+  color="primary"
+  routerLink="/"
+  routerLinkActive="active-link"
+  class="back-button"
+>
+  ← Zurück zur Übersicht
+</button>
 <h1>Blog Detail</h1>
 
 @if (blog) {
@@ -11,6 +20,13 @@
     }
 
     <p><strong>ID:</strong> {{ blog.id }}</p>
+    <p>
+      <strong>Erstellt:</strong> {{ blog.createdAt | date: "dd.MM.yyyy HH:mm" }}
+    </p>
+    <p>
+      <strong>Zuletzt bearbeitet:</strong>
+      {{ blog.updatedAt | date: "dd.MM.yyyy HH:mm" }}
+    </p>
     <p><strong>Autor:</strong> {{ blog.author }}</p>
     <p><strong>Inhalt:</strong> {{ blog.content }}</p>
     <p><strong>Likes:</strong> {{ blog.likes }}</p>
