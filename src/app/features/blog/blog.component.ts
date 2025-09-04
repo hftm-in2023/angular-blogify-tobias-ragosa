@@ -1,24 +1,25 @@
-import { Component, inject } from '@angular/core';
-import { BlogService } from '../../core/services/blog.service';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+import { BlogStore } from '../../core/state/blog.store';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatProgressSpinnerModule],
   templateUrl: './blog.component.html',
-  styleUrl: './blog.component.scss',
+  styleUrls: ['./blog.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogComponent {
-  blogService = inject(BlogService);
-  title = 'angular-blogify-tobias-ragosa';
+  store = inject(BlogStore);
 
   get blogs() {
-    return this.blogService.blogEntries();
+    return this.store.blogs();
   }
-
   get isLoading() {
-    return this.blogService.loading();
+    return this.store.loading();
   }
 }

@@ -3,16 +3,14 @@ import { inject } from '@angular/core';
 import { of } from 'rxjs';
 
 import { BlogComponent } from './blog.component';
-import { BlogService } from '../../core/services/blog.service';
+import { BlogStore } from '../../core/state/blog.store';
 
 export const blogListResolver: ResolveFn<boolean> = () => {
-  const blogService = inject(BlogService);
+  const store = inject(BlogStore);
 
-  if (blogService.blogEntries().length > 0) {
-    return of(true);
-  }
+  if (store.blogs().length > 0) return of(true);
 
-  blogService.loadBlogs();
+  store.loadBlogs();
 
   return of(true);
 };

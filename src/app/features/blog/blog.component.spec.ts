@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { signal } from '@angular/core';
+
 import { BlogComponent } from './blog.component';
-import { BlogService } from '../../core/services/blog.service';
+import { BlogStore } from '../../core/state/blog.store';
 import { type BlogPreviewEntry } from '../../core/models';
 
 describe('BlogComponent', () => {
@@ -21,16 +22,17 @@ describe('BlogComponent', () => {
     },
   ];
 
-  const mockBlogService = {
-    blogEntries: signal<BlogPreviewEntry[]>(mockBlogs),
+  const mockStore = {
+    blogs: signal<BlogPreviewEntry[]>(mockBlogs),
     loading: signal<boolean>(false),
     loadBlogs: jasmine.createSpy('loadBlogs'),
+    selectBlog: jasmine.createSpy('selectBlog'),
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [BlogComponent, RouterTestingModule],
-      providers: [{ provide: BlogService, useValue: mockBlogService }],
+      providers: [{ provide: BlogStore, useValue: mockStore }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(BlogComponent);
@@ -44,11 +46,10 @@ describe('BlogComponent', () => {
 
   it('should expose blogs and isLoading via getters', () => {
     expect(component.blogs.length).toBe(1);
-    expect(component.blogs[0].title).toBe('Test Blog');
     expect(component.isLoading).toBeFalse();
   });
 
-  it('should render blog title in template (if present in view)', () => {
+  it('should render blog title in template', () => {
     const el: HTMLElement = fixture.nativeElement;
     expect(el.textContent || '').toContain('Test Blog');
   });

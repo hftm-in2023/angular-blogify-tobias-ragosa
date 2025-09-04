@@ -1,8 +1,13 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { type BlogDetailEntry } from '../../core/models'; // Barrel-Export
+import { type BlogDetailEntry } from '../../core/models';
 
 @Component({
   selector: 'app-blog-detail-view',
@@ -10,7 +15,9 @@ import { type BlogDetailEntry } from '../../core/models'; // Barrel-Export
   imports: [CommonModule, RouterModule, MatButtonModule],
   templateUrl: './blog-detail-view.component.html',
   styleUrls: ['./blog-detail-view.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogDetailViewComponent {
-  @Input() blog: BlogDetailEntry | null = null;
+  blog = input<BlogDetailEntry | null>(null);
+  back = output<void>();
 }
