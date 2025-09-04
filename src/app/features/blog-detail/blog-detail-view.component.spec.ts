@@ -5,8 +5,8 @@ import { type BlogDetailEntry } from '../../core/models';
 
 const mockDetail: BlogDetailEntry = {
   id: 1,
-  title: 'Test Blog',
-  content: 'Lorem ipsum',
+  title: 'Detail Blog',
+  content: 'Lorem ipsum dolor sit amet',
   author: 'Admin',
   likes: 5,
   comments: [],
@@ -27,23 +27,23 @@ describe('BlogDetailViewComponent (Dumb)', () => {
   });
 
   it('should render blog details when input is provided', () => {
-    const comp = fixture.componentInstance;
-    comp.blog = mockDetail;
+    fixture.componentRef.setInput('blog', mockDetail);
     fixture.detectChanges();
 
     const root = fixture.nativeElement as HTMLElement;
+    expect(root.querySelector('h1')?.textContent).toContain('Blog Detail');
     expect(root.querySelector('h2')?.textContent).toContain(mockDetail.title);
 
     const idP = Array.from(root.querySelectorAll('p')).find((p) =>
-      p.textContent?.includes('ID:'),
+      (p.textContent || '').includes('ID:'),
     );
     expect(idP?.textContent).toContain(String(mockDetail.id));
   });
 
   it('should show not-found when blog is null', () => {
-    const comp = fixture.componentInstance;
-    comp.blog = null;
+    fixture.componentRef.setInput('blog', null);
     fixture.detectChanges();
+
     const root = fixture.nativeElement as HTMLElement;
     expect(root.querySelector('.not-found')).toBeTruthy();
   });
