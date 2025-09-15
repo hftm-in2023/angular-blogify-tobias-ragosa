@@ -12,25 +12,19 @@
       Demo
     </button>
 
-    @if (userData$ | async; as ud) {
-      @if (roleIsUser(ud.userData)) {
-        <a mat-button routerLink="/add" class="btn-primary">+ Neuer Blog</a>
+    @if (isAuthenticated()) {
+      @if (hasUserRole()) {
+        <a mat-button routerLink="/add-blog" class="btn-primary">Neuer Blog</a>
       }
     }
 
     <span class="spacer"></span>
 
-    @if (isAuthenticated$ | async; as auth) {
-      @if (auth.isAuthenticated) {
-        @if (userData$ | async; as ud2) {
-          <span class="username">
-            {{ username(ud2.userData) }}
-          </span>
-        }
-        <button mat-button (click)="logout()">Logout</button>
-      } @else {
-        <button mat-button (click)="login()">Login</button>
-      }
+    @if (isAuthenticated()) {
+      <span class="username">
+        {{ userData().preferred_username }}
+      </span>
+      <button mat-button (click)="logout()">Logout</button>
     } @else {
       <button mat-button (click)="login()">Login</button>
     }
