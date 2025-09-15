@@ -18,16 +18,20 @@
       }
     }
 
-    <span class="spacer"></span>
-
-    @if (isAuthenticated()) {
-      <span class="username">
-        {{ userData().preferred_username }}
-      </span>
-      <button mat-button (click)="logout()">Logout</button>
-    } @else {
-      <button mat-button (click)="login()">Login</button>
-    }
+    <div class="login-area">
+      @if (isAuthenticated()) {
+        <span class="username">
+          {{ userData().preferred_username }}
+        </span>
+        <button mat-button (click)="logout()" matTooltip="Logout">
+          <mat-icon color="primary">logout</mat-icon>
+        </button>
+      } @else {
+        <button mat-button (click)="login()" matTooltip="Login">
+          <mat-icon color="primary">login</mat-icon>
+        </button>
+      }
+    </div>
   </mat-toolbar>
 
   <div class="content">

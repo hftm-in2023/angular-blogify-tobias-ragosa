@@ -108,7 +108,7 @@ main {
   flex-direction: column;
   align-items: start;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .pill {
@@ -186,4 +186,32 @@ main {
 .active-link {
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+mat-icon {
+  font-weight: 600;
+  margin: 0 !important;
+}
+
+.username {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2.75rem;
+  border: 0;
+  padding-inline: 0.75rem;
+  padding-block: 0.7rem;
+  line-height: 1.4rem;
+  font-family: var(--inter-font);
+  font-size: 0.875rem;
+  font-style: normal;
+}
+
+.login-area {
+  position: absolute;
+  right: 1rem;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5000;
 }
