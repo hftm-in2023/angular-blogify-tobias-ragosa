@@ -1,0 +1,35 @@
+:host {
+  .error-message {
+    padding: 1rem;
+    margin: 1rem 0;
+    color: var(--mat-sys-error);
+    background-color: var(--mat-sys-error-container);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  button {
+    width: 200px;
+  }
+
+  .blog-input {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    mat-form-field.mat-mdc-form-field {
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
+}
