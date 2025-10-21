@@ -14,7 +14,7 @@
       @if (isAuthenticated()) {
         @if (hasUserRole()) {
           <button mat-list-item type="button" routerLink="/add-blog">
-            Neuer Blog
+            {{ "SIDEBAR.CREATE_NEW_BLOG_BUTTON" | translate }}
           </button>
         }
       }
