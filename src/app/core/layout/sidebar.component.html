@@ -18,25 +18,33 @@
           </button>
         }
       }
-      <a
-        mat-list-item
-        tabindex="0"
-        (click)="changeLanguage('de')"
-        (keydown)="changeLanguage('de')"
-        >Deutsch</a
-      >
-      <a
-        mat-list-item
-        tabindex="0"
-        (click)="changeLanguage('en')"
-        (keydown)="changeLanguage('en')"
-        >English</a
-      >
       @if (isAuthenticated()) {
         <button mat-list-item type="button" (click)="logout()">Logout</button>
+        <div class="username-sidebar">
+          <span class="username-mobile">
+            {{ userData().preferred_username }}
+          </span>
+        </div>
       } @else {
         <button mat-list-item type="button" (click)="login()">Login</button>
       }
+      <div class="language-sidebar">
+        <button
+          mat-button
+          (click)="changeLanguage('de')"
+          (keydown)="changeLanguage('de')"
+        >
+          DE
+        </button>
+        |
+        <button
+          mat-button
+          (click)="changeLanguage('en')"
+          (keydown)="changeLanguage('en')"
+        >
+          EN
+        </button>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <main class="main">
