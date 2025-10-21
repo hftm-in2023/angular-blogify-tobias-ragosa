@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BlogDetailViewComponent } from './blog-detail-view.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { type BlogDetailEntry } from '../../core/models';
+import { TranslateModule } from '@ngx-translate/core';
 
 const mockDetail: BlogDetailEntry = {
   id: 1,
@@ -20,7 +21,11 @@ describe('BlogDetailViewComponent (Dumb)', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlogDetailViewComponent, RouterTestingModule],
+      imports: [
+        BlogDetailViewComponent,
+        RouterTestingModule,
+        TranslateModule.forRoot(),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(BlogDetailViewComponent);

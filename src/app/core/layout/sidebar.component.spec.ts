@@ -5,6 +5,7 @@ import { of } from 'rxjs';
 import { signal } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { AuthStore } from '../auth/state';
+import { TranslateModule } from '@ngx-translate/core';
 
 class AuthStoreMock {
   isAuthenticated = signal<boolean>(false);
@@ -27,7 +28,7 @@ describe('SidebarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SidebarComponent],
+      imports: [SidebarComponent, TranslateModule.forRoot()],
       providers: [
         provideRouter([]),
         { provide: BreakpointObserver, useValue: breakpointObserverMock },

@@ -5,6 +5,7 @@ import { signal } from '@angular/core';
 import { BlogComponent } from './blog.component';
 import { BlogStore } from '../../core/state/blog.store';
 import { type BlogPreviewEntry } from '../../core/models';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('BlogComponent', () => {
   let fixture: ComponentFixture<BlogComponent>;
@@ -31,7 +32,7 @@ describe('BlogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlogComponent, RouterTestingModule],
+      imports: [BlogComponent, RouterTestingModule, TranslateModule.forRoot()],
       providers: [{ provide: BlogStore, useValue: mockStore }],
     }).compileComponents();
 
