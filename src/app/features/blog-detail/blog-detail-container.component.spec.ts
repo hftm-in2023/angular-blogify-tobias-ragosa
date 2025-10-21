@@ -3,6 +3,7 @@ import { signal } from '@angular/core';
 import { BlogDetailContainerComponent } from './blog-detail-container.component';
 import { BlogStore } from '../../core/state/blog.store';
 import { type BlogDetailEntry } from '../../core/models';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('BlogDetailContainerComponent (Smart)', () => {
   it('should render spinner when loading', async () => {
@@ -12,7 +13,7 @@ describe('BlogDetailContainerComponent (Smart)', () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [BlogDetailContainerComponent],
+      imports: [BlogDetailContainerComponent, TranslateModule.forRoot()],
       providers: [{ provide: BlogStore, useValue: mockStore }],
     }).compileComponents();
 
@@ -43,7 +44,7 @@ describe('BlogDetailContainerComponent (Smart)', () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [BlogDetailContainerComponent],
+      imports: [BlogDetailContainerComponent, TranslateModule.forRoot()],
       providers: [{ provide: BlogStore, useValue: mockStore }],
     }).compileComponents();
 

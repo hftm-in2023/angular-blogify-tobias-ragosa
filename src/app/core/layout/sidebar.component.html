@@ -14,15 +14,37 @@
       @if (isAuthenticated()) {
         @if (hasUserRole()) {
           <button mat-list-item type="button" routerLink="/add-blog">
-            Neuer Blog
+            {{ "SIDEBAR.CREATE_NEW_BLOG_BUTTON" | translate }}
           </button>
         }
       }
       @if (isAuthenticated()) {
         <button mat-list-item type="button" (click)="logout()">Logout</button>
+        <div class="username-sidebar">
+          <span class="username-mobile">
+            {{ userData().preferred_username }}
+          </span>
+        </div>
       } @else {
         <button mat-list-item type="button" (click)="login()">Login</button>
       }
+      <div class="language-sidebar">
+        <button
+          mat-button
+          (click)="changeLanguage('de')"
+          (keydown)="changeLanguage('de')"
+        >
+          DE
+        </button>
+        |
+        <button
+          mat-button
+          (click)="changeLanguage('en')"
+          (keydown)="changeLanguage('en')"
+        >
+          EN
+        </button>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <main class="main">
@@ -54,12 +76,27 @@
         @if (isAuthenticated()) {
           @if (hasUserRole()) {
             <button mat-button routerLink="/add-blog" class="btn-primary">
-              Neuer Blog
+              {{ "SIDEBAR.CREATE_NEW_BLOG_BUTTON" | translate }}
             </button>
           }
         }
 
         <div class="login-area">
+          <button
+            mat-button
+            (click)="changeLanguage('de')"
+            (keydown)="changeLanguage('de')"
+          >
+            DE
+          </button>
+          |
+          <button
+            mat-button
+            (click)="changeLanguage('en')"
+            (keydown)="changeLanguage('en')"
+          >
+            EN
+          </button>
           @if (isAuthenticated()) {
             <span class="username">
               {{ userData().preferred_username }}

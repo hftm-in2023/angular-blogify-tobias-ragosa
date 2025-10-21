@@ -238,3 +238,38 @@ mat-toolbar {
   color: black;
   background-color: white;
 }
+
+a {
+  border-radius: 2.75rem;
+  border: 0;
+  padding-inline: 0.75rem;
+  padding-block: 0.7rem;
+  line-height: 1.4rem;
+  font-family: var(--inter-font);
+  font-size: 0.875rem;
+  font-style: normal;
+}
+
+.language-sidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  border-top: solid 1px white;
+  padding: 0.5rem;
+}
+
+.username-mobile {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2.75rem;
+  border: 0;
+  padding: 0.7rem;
+}
+
+.username-sidebar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
