@@ -238,3 +238,14 @@ mat-toolbar {
   color: black;
   background-color: white;
 }
+
+a {
+  border-radius: 2.75rem;
+  border: 0;
+  padding-inline: 0.75rem;
+  padding-block: 0.7rem;
+  line-height: 1.4rem;
+  font-family: var(--inter-font);
+  font-size: 0.875rem;
+  font-style: normal;
+}

@@ -15,6 +15,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { AuthStore } from '../auth/state';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatTooltip } from '@angular/material/tooltip';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -29,11 +30,13 @@ import { MatTooltip } from '@angular/material/tooltip';
     MatIconModule,
     RouterOutlet,
     RouterModule,
+    TranslatePipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarComponent {
   readonly #authStore = inject(AuthStore);
+  readonly #translate = inject(TranslateService);
 
   onModeChange($event: string) {
     console.log(`event fired ${$event}`);
@@ -61,4 +64,8 @@ export class SidebarComponent {
     ),
     { initialValue: false },
   ) as Signal<boolean>;
+
+  changeLanguage(language: string) {
+    this.#translate.use(language);
+  }
 }
